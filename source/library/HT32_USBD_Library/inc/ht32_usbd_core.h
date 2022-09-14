@@ -53,8 +53,8 @@
 //<e0.0> Enable USB Debug mode
 //<o1.0> Dump USB Debug data
 #ifndef USBDCORE_DEBUG
-  #define USBDCORE_DEBUG                  (0)       /*!< Enable USB Debug mode                              */
-  #define USBDCORE_DEBUG_DATA             (0)       /*!< Dump USB Debug data                                */
+  #define USBDCORE_DEBUG                  (1)       /*!< Enable USB Debug mode                              */
+  #define USBDCORE_DEBUG_DATA             (1)       /*!< Dump USB Debug data                                */
 #endif
 /**
   * @}

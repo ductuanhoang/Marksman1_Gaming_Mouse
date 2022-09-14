@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\ProjectWork\51.Gaming_mouse\1.Documents\Marksman1\project\settings\Marksman1.HT32F50343.general.xcl" --backend -f "D:\ProjectWork\51.Gaming_mouse\1.Documents\Marksman1\project\settings\Marksman1.HT32F50343.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "F:\2.upwork\51.Gaming_mouse\2.Code\Marksman1_Gaming_Mouse\project\settings\Marksman1.HT32F50343.general.xcl" --backend -f "F:\2.upwork\51.Gaming_mouse\2.Code\Marksman1_Gaming_Mouse\project\settings\Marksman1.HT32F50343.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\ProjectWork\51.Gaming_mouse\1.Documents\Marksman1\project\settings\Marksman1.HT32F50343.general.xcl" --debug_file=$debugfile --backend -f "D:\ProjectWork\51.Gaming_mouse\1.Documents\Marksman1\project\settings\Marksman1.HT32F50343.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "F:\2.upwork\51.Gaming_mouse\2.Code\Marksman1_Gaming_Mouse\project\settings\Marksman1.HT32F50343.general.xcl" --debug_file=$debugfile --backend -f "F:\2.upwork\51.Gaming_mouse\2.Code\Marksman1_Gaming_Mouse\project\settings\Marksman1.HT32F50343.driver.xcl" 
 }

@@ -104,6 +104,7 @@ static void on_btn_pressed(int btn_idx, int event, void* args)
   if (btn_idx == (BTN_LED - BTN_AUX_BASE_IDX))
   {
     if (event == E_BUTTON_PRESS) {
+      printf("usb_hid_send_key %d\r\n", 0x04);
       // curr_dpi_idx = (curr_dpi_idx == 0) ? (MAX_DPI_INDEX - 1) : (curr_dpi_idx - 1);
       // printf("[DPI-] Set DPI to %d\r\n", dpi[curr_dpi_idx]);
       // drv_mouse_set_cpi(dpi[curr_dpi_idx]);

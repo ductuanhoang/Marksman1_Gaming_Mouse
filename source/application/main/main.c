@@ -9,7 +9,7 @@
 #include "usb_svc.h"
 #include "button_svc.h"
 #include "led_svc.h"
-
+#include "common.h"
 /* Private function prototypes -----------------------------------------------------------------------------*/
 void CKCU_Configuration(void);
 void GPIO_Configuration(void);
@@ -36,7 +36,7 @@ int main(void)
   led_init();
   usb_init();                /* USB Related configuration                                          */
   usb_connect();
-
+  APP_LOGD("tuan123");
   while (1)
   {
     /* USB core hande and hid report */
@@ -125,7 +125,7 @@ static void debug_svc(void)
     status_pooling_tick = sys_tick;
 
     extern uint32_t     g_rgb_timer;
-    printf("g_rgb_timer: %d, ms: %d\r\n", g_rgb_timer, TIME_TICK2MS(g_rgb_timer));
+    APP_LOGI("g_rgb_timer: %d, ms: %d", g_rgb_timer, TIME_TICK2MS(g_rgb_timer));
     // usb_hid_send_key(0, 0x04);
   }
 }

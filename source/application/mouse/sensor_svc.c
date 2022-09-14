@@ -86,7 +86,9 @@ void sensor_svc(void)
     mouse_hid_data.button.bits.BIT4 = !board_button_read(BTN_FWD);
 
     /* Wheel (encoder) */
-    mouse_hid_data.wheel = (int8_t)(exti_cnt - prev_enc_cnt);
+    // mouse_hid_data.wheel = (int8_t)(exti_cnt - prev_enc_cnt); // wheel change derection backward
+    mouse_hid_data.wheel = (int8_t)(prev_enc_cnt - exti_cnt); // wheel change derection forward
+
 
     /* Validate data changed */
     if( (motion != 0) || (prev_button_state != mouse_hid_data.button.byte) || (mouse_hid_data.wheel != 0) )
