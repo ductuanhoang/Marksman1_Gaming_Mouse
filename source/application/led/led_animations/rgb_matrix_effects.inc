@@ -2,7 +2,7 @@
 #include "led_animations/solid_color_anim.h"
 // #include "led_animations/alpha_mods_anim.h"
 #include "led_animations/gradient_up_down_anim.h"
-// #include "led_animations/gradient_left_right_anim.h"
+#include "led_animations/gradient_left_right_anim.h"
 #include "led_animations/breathing_anim.h"
 // #include "led_animations/colorband_sat_anim.h"
 // #include "led_animations/colorband_val_anim.h"

@@ -36,7 +36,7 @@ int main(void)
   led_init();
   usb_init();                /* USB Related configuration                                          */
   usb_connect();
-  APP_LOGD("tuan123");
+  APP_LOGD("v1.5.0");
   while (1)
   {
     /* USB core hande and hid report */

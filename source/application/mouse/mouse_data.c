@@ -41,7 +41,8 @@ uint8_t mouse_status_changed = 0;
 int32_t exti_cnt = 0;
 
 uint16_t dpi[MAX_DPI_INDEX] = {1000, 1600, 2400, 3200, 4000, 8000, 10000, 12000};
-uint8_t curr_dpi_idx = 2;  // default: 24000 dpi
+uint8_t curr_dpi_idx_xy = 2;  // default: 24000 dpi
+uint8_t curr_dpi_idx_x = 2;  // default: 24000 dpi
 RGB dpi_backlight_color[MAX_DPI_INDEX] = {
   {0, 128, 0},    // RED
   {128, 128, 0},  // yellow

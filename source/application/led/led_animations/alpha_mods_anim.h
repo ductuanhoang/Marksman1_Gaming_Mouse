@@ -5,7 +5,7 @@ RGB_MATRIX_EFFECT(ALPHAS_MODS)
 // alphas = color1, mods = color2
 bool ALPHAS_MODS(effect_params_t* params) {
     RGB_MATRIX_USE_LIMITS(led_min, led_max);
-
+    printf("ALPHAS_MODS\r\n");
     HSV hsv  = rgb_matrix_config.hsv;
     RGB rgb1 = hsv_to_rgb(hsv);
     hsv.h += rgb_matrix_config.speed;

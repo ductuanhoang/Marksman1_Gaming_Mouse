@@ -75,11 +75,13 @@
 
 /* Mouse settings (color, buttons..) */
 #define HID_REPORT_MOUSE_SETTINGS_ID      (7U)
-#define HID_REPORT_MOUSE_SETTINGS_LEN     (32U)
+#define HID_REPORT_MOUSE_SETTINGS_LEN     (33U)
 /* Mouse settings (macros) */
 #define HID_REPORT_MACROS_SETTINGS_ID     (8U)
-#define HID_REPORT_MACROS_SETTINGS_LEN    (256U)
-
+#define HID_REPORT_MACROS_SETTINGS_LEN    (127U)
+// config bootloader settings
+#define HID_REPORT_BOOTLOADER_SETTINGS_ID  (9U)
+#define HID_REPORT_BOOTLOADER_SETTINGS_LEN (32U)
 /* Exported functions --------------------------------------------------------------------------------------*/
 void USBDClass_Init(USBDCore_Class_TypeDef *pClass);
 

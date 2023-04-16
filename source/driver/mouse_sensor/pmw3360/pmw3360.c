@@ -72,8 +72,11 @@ uint8_t drv_mouse_sensor_init(void)
    _pmw3360_delay_ms(100);
 
   /* Set the default CPI to 2400 */
-  drv_mouse_set_cpi(2400);
-
+  // drv_mouse_set_cpi(12000);
+  // test
+  // drv_mouse_use_difference_dip(true);
+  // drv_mouse_set_cpiY(2400);
+  // drv_mouse_set_cpiX(12000);
   return srom_id;
 }
 
@@ -129,6 +132,18 @@ motion_burst_t pmw3360_read_motion_burst(void)
 
     return motionBurst;
 }
+uint8_t drv_mouse_use_difference_dip(bool _enable)
+{
+  if(_enable == true)
+  {
+    // set normal set CPI
+    _pmw3360_write(PMW3360_REG_CONFIG2, 0x04);
+  }
+  else {
+    // : CPI setting for delta Y is defined by Config1 (address 0x0F). CPI setting for deltaX is  defined by Config5 (address 0x2F)
+     _pmw3360_write(PMW3360_REG_CONFIG2, 0x00);
+  }
+}
 
 uint8_t drv_mouse_set_cpi(uint16_t cpi)
 {
@@ -139,6 +154,25 @@ uint8_t drv_mouse_set_cpi(uint16_t cpi)
   return 0;
 }
 
+// add new config dpi
+
+uint8_t drv_mouse_set_cpiX(uint16_t cpi)
+{
+  if (cpi > 10800) {
+    return 1;
+  }
+  _pmw3360_write(PMW3360_REG_CONFIG5, PMW3360_CPI(cpi));
+  return 0;
+}
+
+uint8_t drv_mouse_set_cpiY(uint16_t cpi)
+{
+  if (cpi > 10800) {
+    return 1;
+  }
+  _pmw3360_write(PMW3360_REG_CONFIG1, PMW3360_CPI(cpi));
+  return 0;
+}
 uint16_t drv_mouse_get_cpi()
 {
   uint8_t reg = _pmw3360_read(PMW3360_REG_CONFIG1);

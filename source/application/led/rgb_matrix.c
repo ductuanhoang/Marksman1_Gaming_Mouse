@@ -94,7 +94,7 @@ const point_t k_rgb_matrix_center = RGB_MATRIX_CENTER;
 #endif
 
 #if !defined(RGB_MATRIX_DEFAULT_MODE)
-#   define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SCANNING /* RGB_MATRIX_GRADIENT_UP_DOWN */ /* RGB_MATRIX_BREATHING */
+#   define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR//RGB_MATRIX_SCANNING /* RGB_MATRIX_GRADIENT_UP_DOWN */ /* RGB_MATRIX_BREATHING */
 #endif
 
 #if !defined(RGB_MATRIX_DEFAULT_HUE)
@@ -181,6 +181,9 @@ void eeconfig_update_rgb_matrix_default(void) {
     rgb_matrix_config.hsv[0]    = (HSV){RGB_MATRIX_DEFAULT_HUE, RGB_MATRIX_DEFAULT_SAT, RGB_MATRIX_DEFAULT_VAL};
     rgb_matrix_config.speed     = RGB_MATRIX_DEFAULT_SPD;
     rgb_matrix_config.direction = RGB_MATRIX_DEFAULT_DIRECTION;
+    rgb_matrix_config.mode = 0;
+    rgb_matrix_config.dpi_level_xy = 2;
+    rgb_matrix_config.dpi_level_x = 2;
     eeconfig_update_rgb_matrix();
 }
 
@@ -195,6 +198,11 @@ void eeconfig_debug_rgb_matrix(void) {
         printf("rgb_matrix_config.hsv[%d].s = %d\n", i, rgb_matrix_config.hsv[i].s);
         printf("rgb_matrix_config.hsv[%d].v = %d\n", i, rgb_matrix_config.hsv[i].v);
     }
+    rgb_matrix_config.mode = 0;
+    rgb_matrix_config.dpi_level_xy = 2;
+    rgb_matrix_config.dpi_level_x = 2;
+    printf("rgb_matrix_config.dpi_level = %d\n", rgb_matrix_config.dpi_level_xy);
+    printf("rgb_matrix_config.dpi_level = %d\n", rgb_matrix_config.dpi_level_x);
 }
 
 void rgb_matrix_update_pwm_buffers(void) { rgb_matrix_driver.flush(); }
@@ -257,8 +265,10 @@ void rgb_matrix_test(void) {
     // Increase the factor to make the test animation slower (and reduce to make it faster)
     uint8_t factor = 10;
     switch ((g_rgb_timer & (3 << factor)) >> factor) {
+        // rgb_matrix_set_color_all(20, 0, 0);
         case 0: {
             rgb_matrix_set_color_all(20, 0, 0);
+            // rgb_matrix_set_color_all(0, 20, 0);
             break;
         }
         case 1: {
@@ -267,10 +277,12 @@ void rgb_matrix_test(void) {
         }
         case 2: {
             rgb_matrix_set_color_all(0, 0, 20);
+            // rgb_matrix_set_color_all(0, 20, 0);
             break;
         }
         case 3: {
             rgb_matrix_set_color_all(20, 20, 20);
+            // rgb_matrix_set_color_all(0, 20, 0);
             break;
         }
     }
@@ -337,7 +349,6 @@ static void rgb_task_start(void) {
 static void rgb_task_render(uint8_t effect) {
     bool rendering         = false;
     rgb_effect_params.init = (effect != rgb_last_effect) || (rgb_matrix_config.enable != rgb_last_enable);
-
     // each effect can opt to do calculations
     // and/or request PWM buffer updates.
     switch (effect) {

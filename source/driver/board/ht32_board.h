@@ -46,7 +46,7 @@ typedef enum
   BTN_FWD,
   BTN_BACK,
   BTN_DPI,
-  BTN_LED,
+  BTN_DPI_MINUS,
   BTN_SNIPER,
   BTN_POOLING_RATE,
 } bsp_btn_id_t;

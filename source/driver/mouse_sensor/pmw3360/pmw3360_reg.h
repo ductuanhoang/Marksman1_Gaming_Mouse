@@ -30,6 +30,7 @@
 // config registers
 #define PMW3360_REG_CONFIG1       0x0F
 #define PMW3360_REG_CONFIG2       0x10
+#define PMW3360_REG_CONFIG5       0x2F
 #define PMW3360_REG_OBSERVATION   0x24
 #define PMW3360_REG_DOUT_L        0x25
 #define PMW3360_REG_DOUT_H        0x26

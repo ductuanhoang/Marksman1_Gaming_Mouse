@@ -4,7 +4,7 @@ RGB_MATRIX_EFFECT(GRADIENT_UP_DOWN)
 
 bool GRADIENT_UP_DOWN(effect_params_t* params) {
     RGB_MATRIX_USE_LIMITS(led_min, led_max);
-
+    printf("GRADIENT_UP_DOWN\r\n");
     HSV     hsv   = rgb_matrix_config.hsv[0];
     static uint32_t tick = 0;
     uint8_t scale = 0;
@@ -23,7 +23,7 @@ bool GRADIENT_UP_DOWN(effect_params_t* params) {
 
         /* Set DPI led color */
         if (HAS_FLAGS(g_led_config.flags[i], LED_FLAG_INDICATOR)) {
-            RGB dpi_color = dpi_backlight_color[curr_dpi_idx % MAX_DPI_INDEX];
+            RGB dpi_color = dpi_backlight_color[curr_dpi_idx_xy % MAX_DPI_INDEX];
             rgb_matrix_set_color(i, dpi_color.r, dpi_color.g, dpi_color.b);
             continue;
         }

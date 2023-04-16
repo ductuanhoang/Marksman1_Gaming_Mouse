@@ -78,6 +78,10 @@ uint8_t drv_mouse_sensor_read(int16_t* delta_x, int16_t* delta_y);
 uint8_t drv_mouse_set_cpi(uint16_t cpi);
 uint16_t drv_mouse_get_cpi();
 motion_burst_t pmw3360_read_motion_burst(void);
+// add new set cpi
+uint8_t drv_mouse_use_difference_dip(bool _enable);
+uint8_t drv_mouse_set_cpiX(uint16_t cpi);
+uint8_t drv_mouse_set_cpiY(uint16_t cpi);
 #ifdef __cplusplus
 }
 #endif

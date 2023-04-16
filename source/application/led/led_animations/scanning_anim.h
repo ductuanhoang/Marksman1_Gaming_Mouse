@@ -6,7 +6,7 @@ uint8_t scanning_anim_buff[] = {0,10,30,90,255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 bool SCANNING(effect_params_t* params) {
     RGB_MATRIX_USE_LIMITS(led_min, led_max);
-
+    printf("SCANNING\r\n");
     HSV     hsv   = rgb_matrix_config.hsv[0];
     static uint32_t tick = 0;
     uint8_t i = 0;
@@ -33,7 +33,7 @@ bool SCANNING(effect_params_t* params) {
 
         /* Set DPI led color */
         if (HAS_FLAGS(g_led_config.flags[i], LED_FLAG_INDICATOR)) {
-            RGB dpi_color = dpi_backlight_color[curr_dpi_idx % MAX_DPI_INDEX];
+            RGB dpi_color = dpi_backlight_color[curr_dpi_idx_xy % MAX_DPI_INDEX];
             rgb_matrix_set_color(i, dpi_color.r, dpi_color.g, dpi_color.b);
             continue;
         }

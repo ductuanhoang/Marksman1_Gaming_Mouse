@@ -71,6 +71,10 @@ typedef struct PACKED {
     uint8_t direction;
     uint8_t speed;
     HSV     hsv[8];
+    uint8_t buffer_ota[2]; // draf use update firmware
+    uint8_t dpi_mode;
+    uint8_t dpi_level_xy;
+    uint8_t dpi_level_x;
 } rgb_config_t;
 
 #if defined(_MSC_VER)

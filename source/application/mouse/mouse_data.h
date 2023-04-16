@@ -59,7 +59,8 @@ extern kb_hid_data_t kb_hid_data;
 extern int32_t exti_cnt;
 
 extern uint16_t dpi[MAX_DPI_INDEX];
-extern uint8_t curr_dpi_idx;
+extern uint8_t curr_dpi_idx_x;
+extern uint8_t curr_dpi_idx_xy;
 extern RGB dpi_backlight_color[MAX_DPI_INDEX];
 
 extern uint16_t polling_rate[MAX_POLLING_RATE_INDEX];
